@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test.only('browser test', async ({ browser }) => {
+test('browser test', async ({ browser }) => {
 
   const context = await browser.newContext();
   const page = await context.newPage();
@@ -31,12 +31,11 @@ test.only('browser test', async ({ browser }) => {
   
 });
 
-
-
-
 test('Page test', async ({ page }) => {
   await page.goto('https://google.com');
   //get title - assertion
   console.log(await page.title());
   await expect(page).toHaveTitle('Google');
+
+
 });
